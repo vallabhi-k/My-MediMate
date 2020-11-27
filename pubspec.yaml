@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
     
+    
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -48,6 +49,28 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - cover.png
+    - phonering.png
+    - SMS.png
+    - success.png
+    - delete.png
+    - Gallery.png
+    - Megaphone.png
+    - Female.png
+    - Hospital 3.png
+    - Medical Doctor.png
+    - phonering.png
+    - Pulse.png
+    - Report Card.png
+    - Treatment.png
+    - Stethoscope.png
+    - womanavatar.png
+    - Warm.png
+    - splash_screen_img.png
+    - hand_with_pill.png
+    - logo_text.png
+    - pill.png
+
+
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
