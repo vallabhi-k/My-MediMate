@@ -13,11 +13,12 @@ class _State extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('My MediMate'),
-          backgroundColor: Colors.pink,
-          centerTitle: true,
-        ),
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(100.0),
+          child: AppBar(
+            title: Image.asset("assets/logo_text.png",width:200,height:100),
+            centerTitle: true,
+          )),
         body: Padding(
             padding: EdgeInsets.all(10),
             child: ListView(
@@ -37,7 +38,7 @@ class _State extends State<Login> {
                     padding: EdgeInsets.all(10),
                     child: Text(
                       'Log in',
-                      style: TextStyle(fontSize: 35),
+                      style: TextStyle(fontSize: 45),
                     )),
                 Container(
                   padding: EdgeInsets.all(10),
@@ -73,7 +74,7 @@ class _State extends State<Login> {
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: RaisedButton(
                       textColor: Colors.white,
-                      color: Colors.pink,
+                      color: const Color(0xFFFAC7C7),
                       child: Text('Login'),
                       onPressed: () {
                         print(nameController.text);
@@ -83,9 +84,9 @@ class _State extends State<Login> {
                 Container(
                     child: Row(
                   children: <Widget>[
-                    Text('Does not have account?'),
+                    Text('Do not have account?'),
                     FlatButton(
-                      textColor: Colors.blue,
+                      textColor: Colors.brown[300],
                       child: Text(
                         'Sign in',
                         style: TextStyle(fontSize: 20),

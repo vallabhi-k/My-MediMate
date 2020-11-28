@@ -37,6 +37,8 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primaryColor: const Color(0xFFFFE2E2),
+        //primaryColor: Colors.yellow,
+        accentColor: const Color(0xFFFAC7C7),
         //primarySwatch: Colors.pink,
       ),
       //home: MyHomePage(title: 'Flutter Demo Home Page'),

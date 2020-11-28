@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'navbar.dart';
 
 class Prescription_Logs extends StatefulWidget {
   @override
@@ -9,11 +10,13 @@ class _Prescription_LogsState extends State<Prescription_Logs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Prescription Log"),
-        backgroundColor: Colors.pink,
-        centerTitle: true,
-      ),
+      appBar: PreferredSize(
+          preferredSize: Size.fromHeight(100.0),
+          child: AppBar(
+            title: Image.asset("assets/logo_text.png",width:200,height:100),
+            centerTitle: true,
+          )),
+          drawer:NavDrawer(),
       body: Column(children: <Widget>[
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -43,7 +46,7 @@ class _Prescription_LogsState extends State<Prescription_Logs> {
                   decoration: BoxDecoration(
                       border: Border(
                           right: BorderSide(width: 2.0, color: Colors.white)),
-                      color: Colors.pink),
+                      color: const Color(0xFFFAC7C7)),
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.only(top: 2.0),
@@ -97,7 +100,7 @@ class _Prescription_LogsState extends State<Prescription_Logs> {
                       border: Border(
                         right: BorderSide(width: 2.0, color: Colors.white),
                       ),
-                      color: Colors.pink),
+                      color:const Color(0xFFFFC7C7)),
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.only(top: 2.0),

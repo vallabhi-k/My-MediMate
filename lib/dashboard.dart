@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'prescription_logs.dart';
+import 'Prescription.dart';
+import 'MedicineBill.dart';
+import 'Profile.dart';
 
 class Dashboard extends StatelessWidget {
   @override
@@ -16,7 +19,7 @@ class Dashboard extends StatelessWidget {
               ),
               Expanded(
                 child: Container(color: Colors.transparent),
-                flex: 5,
+                flex: 7,
               ),
             ],
           ),
@@ -26,27 +29,26 @@ class Dashboard extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 ListTile(
-                  contentPadding: EdgeInsets.only(left: 20, right: 20, top: 50),
-                  title: Text(
+                  contentPadding: EdgeInsets.only(left: 30, right: 20, top: 50),
+                  title: 
+                  Image.asset('assets/womanavatar.png',width:100,height:60),
+                       
+                  subtitle:
+                  Text(
                     'Username',
                     style: TextStyle(
                         color: Colors.brown,
                         fontWeight: FontWeight.bold,
-                        fontSize: 25.0),
-                    //textAlign: TextAlign.center,
-                  ),
-                  subtitle: Text(
-                    '',
-                    style: TextStyle(color: Colors.blue),
-                  ),
-                  trailing: CircleAvatar(
-                    radius: 50,
-                    backgroundImage: AssetImage('assets/womanavatar.png'),
-                  ),
+                        fontSize: 22.0),
+                    textAlign: TextAlign.center,
+                  ),   
                 ),
 
                 /* -------------------------*/
                 /* grid*/
+                Padding(
+                  padding : EdgeInsets.only( bottom: 30),
+                ),
                 Expanded(
                   child: Container(
                     padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
@@ -61,7 +63,7 @@ class Dashboard extends StatelessWidget {
                               EdgeInsets.only(left: 12, right: 12, bottom: 16),
                           child: Card(
                             color: const Color(0xFFFAC7C7),
-                            elevation: 2,
+                            elevation: 5,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12)),
                             child: InkWell(
@@ -69,7 +71,7 @@ class Dashboard extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Prescription_Logs(),
+                                      builder: (context) => PrescriptionPage(title:'MyMediMate'),
                                     ));
                               },
                               child: Center(
@@ -93,7 +95,7 @@ class Dashboard extends StatelessWidget {
                               EdgeInsets.only(left: 12, right: 12, bottom: 16),
                           child: Card(
                             color: const Color(0xFFFAC7C7),
-                            elevation: 2,
+                            elevation: 5,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12)),
                             child: InkWell(
@@ -101,7 +103,7 @@ class Dashboard extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Prescription_Logs(),
+                                      builder: (context) => MedicineBillPage(title:'My MediMate'),
                                     ));
                               },
                               child: Center(
@@ -197,7 +199,7 @@ class Dashboard extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Prescription_Logs(),
+                                      builder: (context) => ProfilePage(title:'My MediMate'),
                                     ));
                               },
                               child: Center(

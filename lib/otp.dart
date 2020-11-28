@@ -139,12 +139,10 @@ class OtpPageState extends State<OtpPage> {
     return new Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(150.0),
+          preferredSize: Size.fromHeight(100.0),
           child: AppBar(
-            title: Text("Enter OTP",
-                style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold)),
+            title: Image.asset("assets/logo_text.png",width:200,height:100),
             centerTitle: true,
-            backgroundColor: Colors.pink,
           )),
       backgroundColor: Color(0xFFeaeaea),
       body: Container(
@@ -189,7 +187,8 @@ class OtpPageState extends State<OtpPage> {
                       style: TextStyle(
                           fontSize: 15.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.pink),
+                          color: Colors.brown[300],
+                          ),
                       textAlign: TextAlign.center,
                     ),
                   ),

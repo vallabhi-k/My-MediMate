@@ -18,8 +18,7 @@ class _SignUpState extends State<SignUp> {
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(100.0),
           child: AppBar(
-            title: Text('Sign Up',
-                style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold)),
+            title: Image.asset("assets/logo_text.png",width:200,height:100),
             centerTitle: true,
           )),
       body: Center(
@@ -33,15 +32,20 @@ class _SignUpState extends State<SignUp> {
                   SizedBox(
                     height: 10,
                   ),
+                  Text(
+                    "Sign Up",style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold,color:Colors.black),
+                  ),
                   Center(
                     child: SizedBox(
                       width: 0,
                       height: 0,
+                     
                     ),
                   ),
                   SizedBox(
                     height: 20,
                   ),
+                   
                   TextField(
                     autofocus: false,
                     obscureText: false,
@@ -99,7 +103,8 @@ class _SignUpState extends State<SignUp> {
                             ));
                       },
                       textColor: Colors.white,
-                      color: Colors.green,
+                      color: const Color(0xFFFAC7C7),
+                      
                       height: 50,
                       child: Text("Create an account"),
                     ),
@@ -112,7 +117,7 @@ class _SignUpState extends State<SignUp> {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => Login()));
                     },
-                    textColor: Colors.black,
+                    textColor: Colors.brown[300],
                     child: Text('Already have account. Log In'),
                   ),
                   FlatButton(
@@ -123,7 +128,7 @@ class _SignUpState extends State<SignUp> {
                               builder: (context) => Prescription_Logs()));
                     },
                     textColor: Colors.black,
-                    child: Text('Prescription Logs '),
+                    
                   ),
                 ],
               ),
