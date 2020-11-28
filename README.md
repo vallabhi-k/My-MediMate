@@ -1,15 +1,16 @@
 # My-MediMate
 A medical Assistant System for the elderly.
-class PrescriptionPage extends StatefulWidget {
-  PrescriptionPage({Key key, this.title}) : super(key: key);
+
+class MedicineBillPage extends StatefulWidget {
+  MedicineBillPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _PrescriptionState createState() => _PrescriptionState();
+  _MedicineBillState createState() => _MedicineBillState();
 }
 
-class _PrescriptionState extends State<PrescriptionPage> {
+class _MedicineBillState extends State<MedicineBillPage> {
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -26,7 +27,7 @@ class _PrescriptionState extends State<PrescriptionPage> {
         centerTitle: true,
       ),
       drawer: NavDrawer(),
-      body: SingleChildScrollView (child : PrescriptionForm(),),
+      body: SingleChildScrollView (child : MedicineBillForm(),),
     );
   }
 }
