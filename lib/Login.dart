@@ -67,7 +67,7 @@ class _State extends State<Login> {
                     //forgot password screen
                   },
                   textColor: Colors.black,
-                  //child: Text('Forgot Password'),
+                  child: Text('Forgot Password'),
                 ),
                 Container(
                     height: 50,
@@ -92,6 +92,7 @@ class _State extends State<Login> {
                         style: TextStyle(fontSize: 20),
                       ),
                       onPressed: () {
+
                         Navigator.push(
                             context,
                             MaterialPageRoute(

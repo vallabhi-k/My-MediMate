@@ -36,6 +36,7 @@ class OtpPageState extends State<OtpPage> {
 
   @override
   Widget build(BuildContext context) {
+    String mobileNumber = ModalRoute.of(context).settings.arguments;
     List<Widget> widgetList = [
       Padding(
         padding: EdgeInsets.only(left: 0.0, right: 2.0),
@@ -183,7 +184,7 @@ class OtpPageState extends State<OtpPage> {
                     padding: const EdgeInsets.only(
                         left: 30.0, top: 2.0, right: 30.0),
                     child: Text(
-                      "+91 9876543210",
+                      ("+91 "+mobileNumber),
                       style: TextStyle(
                           fontSize: 15.0,
                           fontWeight: FontWeight.bold,
@@ -372,10 +373,9 @@ class OtpPageState extends State<OtpPage> {
                           MaterialButton(
                               onPressed: () {
                                 //matchOtp();
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Dashboard()));
+                                Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                                    Dashboard()), (Route<dynamic> route) => false);
+
                               },
                               child: Image.asset('assets/success.png',
                                   width: 25.0, height: 25.0)),

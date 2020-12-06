@@ -52,8 +52,8 @@ class _SelectLanguagePageState extends State<SelectLanguagePage> {
                 children: [
                   FlatButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => SignUp()));
+                      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                          SignUp()), (Route<dynamic> route) => false);
                     },
                     child: Text("हिंदी",
                         style: TextStyle(
@@ -70,8 +70,8 @@ class _SelectLanguagePageState extends State<SelectLanguagePage> {
                 children: [
                   FlatButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => SignUp()));
+                      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                          SignUp()), (Route<dynamic> route) => false);
                     },
                     child: Text("English",
                         style: TextStyle(

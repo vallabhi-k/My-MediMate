@@ -75,7 +75,7 @@ class _ProfileFormState extends State<ProfileForm> {
               ),
               validator: (value){
                 if (value.isEmpty){
-                  return 'Please enter text';
+                  return 'Please enter your Name';
                 }
                 return null;
               },
@@ -90,7 +90,7 @@ class _ProfileFormState extends State<ProfileForm> {
               ),
               validator: (value){
                 if (value.isEmpty){
-                  return 'Please enter text';
+                  return 'Please enter your Phone Number';
                 }
                 return null;
               },

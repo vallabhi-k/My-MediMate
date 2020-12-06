@@ -137,7 +137,7 @@ class _PrescriptionFormState extends State<PrescriptionForm> {
               ),
               validator: (value) {
                 if (value.isEmpty) {
-                  return 'Please enter text';
+                  return 'Please enter Disease Name';
                 }
                 return null;
               },

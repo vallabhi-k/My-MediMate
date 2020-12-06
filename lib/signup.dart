@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'Login.dart';
 import 'otp.dart';
 import 'prescription_logs.dart';
+import 'package:flutter_otp/flutter_otp.dart';
+import 'package:sms/sms.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -10,7 +12,9 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   TextEditingController emailEditingContrller = TextEditingController();
-
+  FlutterOtp otp = FlutterOtp();
+  final _formKey = GlobalKey<FormState>();
+  String mobileNumber;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +30,8 @@ class _SignUpState extends State<SignUp> {
           child: Container(
             color: Colors.white,
             padding: EdgeInsets.all(24),
+            child: Form(
+              key: _formKey,
             child: Center(
               child: Column(
                 children: <Widget>[
@@ -33,7 +39,7 @@ class _SignUpState extends State<SignUp> {
                     height: 10,
                   ),
                   Text(
-                    "Sign Up",style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold,color:Colors.black),
+                    "Log In",style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold,color:Colors.black),
                   ),
                   Center(
                     child: SizedBox(
@@ -46,11 +52,10 @@ class _SignUpState extends State<SignUp> {
                     height: 20,
                   ),
                    
-                  TextField(
+                  TextFormField(
                     autofocus: false,
                     obscureText: false,
                     keyboardType: TextInputType.text,
-                    controller: emailEditingContrller,
                     decoration: InputDecoration(
                         labelText: "Name",
                         hintText: "Name",
@@ -64,13 +69,19 @@ class _SignUpState extends State<SignUp> {
                                 width: 1,
                                 color: Colors.green,
                                 style: BorderStyle.solid))),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter Name';
+                      }
+                      return null;
+                    },
                   ),
                   SizedBox(
                     height: 20,
                   ),
-                  TextField(
+                  TextFormField(
                     autofocus: false,
-                    obscureText: true,
+                    obscureText: false,
                     keyboardType: TextInputType.number,
                     //controller: emailEditingContrller,
                     decoration: InputDecoration(
@@ -86,7 +97,15 @@ class _SignUpState extends State<SignUp> {
                                 width: 1,
                                 color: Colors.green,
                                 style: BorderStyle.solid))),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter Mobile Number';
+                      }
+                      mobileNumber = value;
+                      return null;
+                    },
                   ),
+
                   SizedBox(
                     height: 40,
                   ),
@@ -96,11 +115,15 @@ class _SignUpState extends State<SignUp> {
                     minWidth: double.infinity,
                     child: MaterialButton(
                       onPressed: () {
+                      if (_formKey.currentState.validate()) {
+                        otp.sendOtp("9833515265", "OTP is", 1000, 9999, '+91');
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => OtpPage(),
+                              settings: RouteSettings(arguments: mobileNumber,)
                             ));
+                      }
                       },
                       textColor: Colors.white,
                       color: const Color(0xFFFAC7C7),
@@ -109,29 +132,10 @@ class _SignUpState extends State<SignUp> {
                       child: Text("Create an account"),
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Login()));
-                    },
-                    textColor: Colors.brown[300],
-                    child: Text('Already have account. Log In'),
-                  ),
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Prescription_Logs()));
-                    },
-                    textColor: Colors.black,
-                    
-                  ),
+
                 ],
               ),
+            ),
             ),
           ),
         ),
