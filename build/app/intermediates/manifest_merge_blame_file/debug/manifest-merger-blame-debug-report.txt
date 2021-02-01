@@ -5,7 +5,7 @@
 5    android:versionName="1.0.0" >
 6
 7    <uses-sdk
-8        android:minSdkVersion="16"
+8        android:minSdkVersion="21"
 9        android:targetSdkVersion="29" />
 10    <!--
 11         Flutter needs it to communicate with the running application
@@ -14,128 +14,362 @@
 14    <uses-permission android:name="android.permission.INTERNET" />
 14-->D:\Android Projects\Git\My-MediMate\android\app\src\debug\AndroidManifest.xml:6:5-66
 14-->D:\Android Projects\Git\My-MediMate\android\app\src\debug\AndroidManifest.xml:6:22-64
-15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-15-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-80
-15-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-77
-16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-16-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-81
-16-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-78
-17    <uses-permission android:name="android.permission.READ_SMS" />
-17-->[:sms] D:\Android Projects\Git\My-MediMate\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-67
-17-->[:sms] D:\Android Projects\Git\My-MediMate\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-64
-18    <uses-permission android:name="android.permission.SEND_SMS" />
-18-->[:sms] D:\Android Projects\Git\My-MediMate\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-67
-18-->[:sms] D:\Android Projects\Git\My-MediMate\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-64
-19    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-19-->[:sms] D:\Android Projects\Git\My-MediMate\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-70
-19-->[:sms] D:\Android Projects\Git\My-MediMate\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:9:22-67
-20    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-20-->[:sms] D:\Android Projects\Git\My-MediMate\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-75
-20-->[:sms] D:\Android Projects\Git\My-MediMate\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:10:22-72
-21    <uses-permission android:name="android.permission.READ_CONTACTS" />
-21-->[:sms] D:\Android Projects\Git\My-MediMate\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-72
-21-->[:sms] D:\Android Projects\Git\My-MediMate\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:11:22-69
-22    <uses-permission android:name="android.permission.READ_PROFILE" />
-22-->[:sms] D:\Android Projects\Git\My-MediMate\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-71
-22-->[:sms] D:\Android Projects\Git\My-MediMate\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:12:22-68
-23    <!--
-24 io.flutter.app.FlutterApplication is an android.app.Application that
-25         calls FlutterMain.startInitialization(this); in its onCreate method.
-26         In most cases you can leave this as-is, but you if you want to provide
-27         additional functionality it is fine to subclass or reimplement
-28         FlutterApplication and put your custom class here.
-29    -->
+15    <!--
+16     io.flutter.app.FlutterApplication is an android.app.Application that
+17         calls FlutterMain.startInitialization(this); in its onCreate method.
+18         In most cases you can leave this as-is, but you if you want to provide
+19         additional functionality it is fine to subclass or reimplement
+20         FlutterApplication and put your custom class here.
+21    -->
+22    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+22-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:8:5-80
+22-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:8:22-78
+23    <uses-permission android:name="android.permission.WAKE_LOCK" />
+23-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:9:5-67
+23-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:9:22-65
+24    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+24-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-80
+24-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-77
+25    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+25-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-81
+25-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-78
+26    <uses-permission android:name="android.permission.VIBRATE" />
+26-->[:flutter_local_notifications] D:\Android Projects\Git\My-MediMate\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-66
+26-->[:flutter_local_notifications] D:\Android Projects\Git\My-MediMate\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-63
+27    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+27-->[:flutter_local_notifications] D:\Android Projects\Git\My-MediMate\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-81
+27-->[:flutter_local_notifications] D:\Android Projects\Git\My-MediMate\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:9:22-78
+28    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+28-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:24:5-79
+28-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:24:22-76
+29
 30    <application
-30-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:8:5-46:19
-31        android:name="io.flutter.app.FlutterApplication"
-31-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:9:9-57
+30-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:11:5-65:19
+31        android:name="com.example.medi_mate.Application"
+31-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:12:9-36
 32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-32-->[androidx.core:core:1.1.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\a528b13ac93e64cafa3d0480e2c93207\core-1.1.0\AndroidManifest.xml:24:18-86
+32-->[androidx.core:core:1.3.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\5fbd5e685b59ec4bfa0e4a54e6242420\core-1.3.0\AndroidManifest.xml:24:18-86
 33        android:debuggable="true"
 34        android:icon="@mipmap/ic_launcher"
-34-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:11:9-43
+34-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:14:9-43
 35        android:label="medi_mate" >
-35-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:10:9-34
-36        <activity
-36-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:12:9-40:20
-37            android:name="com.example.medi_mate.MainActivity"
-37-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:13:13-41
-38            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-38-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:16:13-163
-39            android:hardwareAccelerated="true"
-39-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:17:13-47
-40            android:launchMode="singleTop"
-40-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:14:13-43
-41            android:theme="@style/LaunchTheme"
-41-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:15:13-47
-42            android:windowSoftInputMode="adjustResize" >
-42-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:18:13-55
-43
-44            <!--
-45                 Specifies an Android theme to apply to this Activity as soon as
-46                 the Android process has started. This theme is visible to the user
-47                 while the Flutter UI initializes. After that, this theme continues
-48                 to determine the Window background behind the Flutter UI.
-49            -->
-50            <meta-data
-50-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:23:13-26:17
-51                android:name="io.flutter.embedding.android.NormalTheme"
-51-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:24:15-70
-52                android:resource="@style/NormalTheme" />
-52-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:25:15-52
-53            <!--
-54                 Displays an Android View that continues showing the launch screen
-55                 Drawable until Flutter paints its first frame, then this splash
-56                 screen fades out. A splash screen is useful to avoid any visual
-57                 gap between the end of Android's launch screen and the painting of
-58                 Flutter's first frame.
-59            -->
-60            <meta-data
-60-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:32:13-35:17
-61                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-61-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:33:15-79
-62                android:resource="@drawable/launch_background" />
-62-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:34:15-61
-63
-64            <intent-filter>
-64-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:36:13-39:29
-65                <action android:name="android.intent.action.MAIN" />
-65-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:37:17-68
-65-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:37:25-66
-66
-67                <category android:name="android.intent.category.LAUNCHER" />
-67-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:38:17-76
-67-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:38:27-74
-68            </intent-filter>
-69        </activity>
-70        <!--
-71             Don't delete the meta-data below.
-72             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-73        -->
-74        <meta-data
-74-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:43:9-45:33
-75            android:name="flutterEmbedding"
-75-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:44:13-44
-76            android:value="2" />
-76-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:45:13-30
-77
-78        <provider
-78-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-19:20
-79            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-79-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-82
-80            android:authorities="com.example.medi_mate.flutter.image_provider"
-80-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-74
-81            android:exported="false"
-81-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
-82            android:grantUriPermissions="true" >
-82-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-47
-83            <meta-data
-83-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-18:75
-84                android:name="android.support.FILE_PROVIDER_PATHS"
-84-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:17:17-67
-85                android:resource="@xml/flutter_image_picker_file_paths" />
-85-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-72
-86        </provider>
-87    </application>
-88
-89</manifest>
+35-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:13:9-34
+36        <service
+36-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:15:9-18:39
+37            android:name="io.flutter.plugins.androidalarmmanager.AlarmService"
+37-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:16:13-79
+38            android:exported="false"
+38-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:18:13-37
+39            android:permission="android.permission.BIND_JOB_SERVICE" />
+39-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:17:13-69
+40
+41        <receiver
+41-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:19:9-21:39
+42            android:name="io.flutter.plugins.androidalarmmanager.AlarmBroadcastReceiver"
+42-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:20:13-89
+43            android:exported="false" />
+43-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:21:13-37
+44        <receiver
+44-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:22:9-28:20
+45            android:name="io.flutter.plugins.androidalarmmanager.RebootBroadcastReceiver"
+45-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:23:13-90
+46            android:enabled="false" >
+46-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:24:13-36
+47            <intent-filter>
+47-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:25:13-27:29
+48                <action android:name="android.intent.action.BOOT_COMPLETED" />
+48-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:26:17-78
+48-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:26:25-76
+49            </intent-filter>
+50        </receiver>
+51
+52        <activity
+52-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:31:9-59:20
+53            android:name="com.example.medi_mate.MainActivity"
+53-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:32:13-41
+54            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+54-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:35:13-163
+55            android:hardwareAccelerated="true"
+55-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:36:13-47
+56            android:launchMode="singleTop"
+56-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:33:13-43
+57            android:theme="@style/LaunchTheme"
+57-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:34:13-47
+58            android:windowSoftInputMode="adjustResize" >
+58-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:37:13-55
+59
+60            <!--
+61                 Specifies an Android theme to apply to this Activity as soon as
+62                 the Android process has started. This theme is visible to the user
+63                 while the Flutter UI initializes. After that, this theme continues
+64                 to determine the Window background behind the Flutter UI.
+65            -->
+66            <meta-data
+66-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:42:13-45:17
+67                android:name="io.flutter.embedding.android.NormalTheme"
+67-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:43:15-70
+68                android:resource="@style/NormalTheme" />
+68-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:44:15-52
+69            <!--
+70                 Displays an Android View that continues showing the launch screen
+71                 Drawable until Flutter paints its first frame, then this splash
+72                 screen fades out. A splash screen is useful to avoid any visual
+73                 gap between the end of Android's launch screen and the painting of
+74                 Flutter's first frame.
+75            -->
+76            <meta-data
+76-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:51:13-54:17
+77                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+77-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:52:15-79
+78                android:resource="@drawable/launch_background" />
+78-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:53:15-61
+79
+80            <intent-filter>
+80-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:55:13-58:29
+81                <action android:name="android.intent.action.MAIN" />
+81-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:56:17-68
+81-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:56:25-66
+82
+83                <category android:name="android.intent.category.LAUNCHER" />
+83-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:57:17-76
+83-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:57:27-74
+84            </intent-filter>
+85        </activity>
+86        <!--
+87             Don't delete the meta-data below.
+88             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+89        -->
+90        <meta-data
+90-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:62:9-64:33
+91            android:name="flutterEmbedding"
+91-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:63:13-44
+92            android:value="2" />
+92-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:64:13-30
+93
+94        <provider
+94-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-19:20
+95            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+95-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-82
+96            android:authorities="com.example.medi_mate.flutter.image_provider"
+96-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-74
+97            android:exported="false"
+97-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
+98            android:grantUriPermissions="true" >
+98-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-47
+99            <meta-data
+99-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-18:75
+100                android:name="android.support.FILE_PROVIDER_PATHS"
+100-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:17:17-67
+101                android:resource="@xml/flutter_image_picker_file_paths" />
+101-->[:image_picker] D:\Android Projects\Git\My-MediMate\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-72
+102        </provider>
+103
+104        <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
+104-->[:flutter_local_notifications] D:\Android Projects\Git\My-MediMate\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-106
+104-->[:flutter_local_notifications] D:\Android Projects\Git\My-MediMate\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:12:19-103
+105        <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver" >
+105-->[:flutter_local_notifications] D:\Android Projects\Git\My-MediMate\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-20:20
+105-->[:flutter_local_notifications] D:\Android Projects\Git\My-MediMate\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:13:19-107
+106            <intent-filter>
+106-->[:flutter_local_notifications] D:\Android Projects\Git\My-MediMate\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-19:29
+107                <action android:name="android.intent.action.BOOT_COMPLETED" />
+107-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:26:17-78
+107-->D:\Android Projects\Git\My-MediMate\android\app\src\main\AndroidManifest.xml:26:25-76
+108                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+108-->[:flutter_local_notifications] D:\Android Projects\Git\My-MediMate\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:16:17-84
+108-->[:flutter_local_notifications] D:\Android Projects\Git\My-MediMate\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:16:25-81
+109                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+109-->[:flutter_local_notifications] D:\Android Projects\Git\My-MediMate\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:17:17-82
+109-->[:flutter_local_notifications] D:\Android Projects\Git\My-MediMate\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:17:25-79
+110                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+110-->[:flutter_local_notifications] D:\Android Projects\Git\My-MediMate\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-82
+110-->[:flutter_local_notifications] D:\Android Projects\Git\My-MediMate\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:18:25-79
+111            </intent-filter>
+112        </receiver>
+113
+114        <service
+114-->[:cloud_firestore] D:\Android Projects\Git\My-MediMate\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
+115            android:name="com.google.firebase.components.ComponentDiscoveryService"
+115-->[:cloud_firestore] D:\Android Projects\Git\My-MediMate\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-89
+116            android:directBootAware="true"
+116-->[com.google.firebase:firebase-common:19.4.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\62c1c44a68a45a2cc587f10a3159e7c2\jetified-firebase-common-19.4.0\AndroidManifest.xml:35:13-43
+117            android:exported="false" >
+117-->[com.google.firebase:firebase-database-ktx:19.5.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\91b9e6c2df8842cb9819ecffd9d2789a\firebase-database-ktx-19.5.1\AndroidManifest.xml:14:13-37
+118            <meta-data
+118-->[:cloud_firestore] D:\Android Projects\Git\My-MediMate\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+119                android:name="com.google.firebase.components:io.flutter.plugins.firebase.cloudfirestore.FlutterFirebaseAppRegistrar"
+119-->[:cloud_firestore] D:\Android Projects\Git\My-MediMate\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-133
+120                android:value="com.google.firebase.components.ComponentRegistrar" />
+120-->[:cloud_firestore] D:\Android Projects\Git\My-MediMate\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+121            <meta-data
+121-->[:firebase_database] D:\Android Projects\Git\My-MediMate\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+122                android:name="com.google.firebase.components:io.flutter.plugins.firebase.database.FlutterFirebaseAppRegistrar"
+122-->[:firebase_database] D:\Android Projects\Git\My-MediMate\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-127
+123                android:value="com.google.firebase.components.ComponentRegistrar" />
+123-->[:firebase_database] D:\Android Projects\Git\My-MediMate\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+124            <meta-data
+124-->[:firebase_auth] D:\Android Projects\Git\My-MediMate\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+125                android:name="com.google.firebase.components:io.flutter.plugins.firebaseauth.FlutterFirebaseAppRegistrar"
+125-->[:firebase_auth] D:\Android Projects\Git\My-MediMate\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-122
+126                android:value="com.google.firebase.components.ComponentRegistrar" />
+126-->[:firebase_auth] D:\Android Projects\Git\My-MediMate\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+127            <meta-data
+127-->[:firebase_core] D:\Android Projects\Git\My-MediMate\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+128                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseAppRegistrar"
+128-->[:firebase_core] D:\Android Projects\Git\My-MediMate\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-123
+129                android:value="com.google.firebase.components.ComponentRegistrar" />
+129-->[:firebase_core] D:\Android Projects\Git\My-MediMate\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+130            <meta-data
+130-->[com.google.firebase:firebase-database-ktx:19.5.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\91b9e6c2df8842cb9819ecffd9d2789a\firebase-database-ktx-19.5.1\AndroidManifest.xml:15:13-17:85
+131                android:name="com.google.firebase.components:com.google.firebase.database.ktx.FirebaseDatabaseKtxRegistrar"
+131-->[com.google.firebase:firebase-database-ktx:19.5.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\91b9e6c2df8842cb9819ecffd9d2789a\firebase-database-ktx-19.5.1\AndroidManifest.xml:16:17-124
+132                android:value="com.google.firebase.components.ComponentRegistrar" />
+132-->[com.google.firebase:firebase-database-ktx:19.5.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\91b9e6c2df8842cb9819ecffd9d2789a\firebase-database-ktx-19.5.1\AndroidManifest.xml:17:17-82
+133            <meta-data
+133-->[com.google.firebase:firebase-common-ktx:19.4.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\60f1976e5271aa83242284328fa96694\firebase-common-ktx-19.4.0\AndroidManifest.xml:15:13-17:85
+134                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar"
+134-->[com.google.firebase:firebase-common-ktx:19.4.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\60f1976e5271aa83242284328fa96694\firebase-common-ktx-19.4.0\AndroidManifest.xml:16:17-113
+135                android:value="com.google.firebase.components.ComponentRegistrar" />
+135-->[com.google.firebase:firebase-common-ktx:19.4.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\60f1976e5271aa83242284328fa96694\firebase-common-ktx-19.4.0\AndroidManifest.xml:17:17-82
+136            <meta-data
+136-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:77:13-79:85
+137                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+137-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:78:17-109
+138                android:value="com.google.firebase.components.ComponentRegistrar" />
+138-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:79:17-82
+139            <meta-data
+139-->[com.google.firebase:firebase-firestore:22.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\fe4175db50a701b0e60675b48e3356d9\jetified-firebase-firestore-22.0.0\AndroidManifest.xml:20:13-22:85
+140                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+140-->[com.google.firebase:firebase-firestore:22.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\fe4175db50a701b0e60675b48e3356d9\jetified-firebase-firestore-22.0.0\AndroidManifest.xml:21:17-111
+141                android:value="com.google.firebase.components.ComponentRegistrar" />
+141-->[com.google.firebase:firebase-firestore:22.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\fe4175db50a701b0e60675b48e3356d9\jetified-firebase-firestore-22.0.0\AndroidManifest.xml:22:17-82
+142            <meta-data
+142-->[com.google.firebase:firebase-database:19.5.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\decf53d8ee36e60915bb3ca2de2550bd\firebase-database-19.5.1\AndroidManifest.xml:32:13-34:85
+143                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+143-->[com.google.firebase:firebase-database:19.5.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\decf53d8ee36e60915bb3ca2de2550bd\firebase-database-19.5.1\AndroidManifest.xml:33:17-109
+144                android:value="com.google.firebase.components.ComponentRegistrar" />
+144-->[com.google.firebase:firebase-database:19.5.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\decf53d8ee36e60915bb3ca2de2550bd\firebase-database-19.5.1\AndroidManifest.xml:34:17-82
+145        </service>
+146
+147        <activity
+147-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:27:9-44:20
+148            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+148-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:28:13-80
+149            android:excludeFromRecents="true"
+149-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:29:13-46
+150            android:exported="true"
+150-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:30:13-36
+151            android:launchMode="singleTask"
+151-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:31:13-44
+152            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+152-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:32:13-72
+153            <intent-filter>
+153-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:33:13-43:29
+154                <action android:name="android.intent.action.VIEW" />
+154-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:34:17-69
+154-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:34:25-66
+155
+156                <category android:name="android.intent.category.DEFAULT" />
+156-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:36:17-76
+156-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:36:27-73
+157                <category android:name="android.intent.category.BROWSABLE" />
+157-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:37:17-78
+157-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:37:27-75
+158
+159                <data
+159-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:39:17-42:51
+160                    android:host="firebase.auth"
+160-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:40:21-49
+161                    android:path="/"
+161-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:41:21-37
+162                    android:scheme="genericidp" />
+162-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:42:21-48
+163            </intent-filter>
+164        </activity>
+165        <activity
+165-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:45:9-62:20
+166            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+166-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:46:13-79
+167            android:excludeFromRecents="true"
+167-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:47:13-46
+168            android:exported="true"
+168-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:48:13-36
+169            android:launchMode="singleTask"
+169-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:49:13-44
+170            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+170-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:50:13-72
+171            <intent-filter>
+171-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:51:13-61:29
+172                <action android:name="android.intent.action.VIEW" />
+172-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:34:17-69
+172-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:34:25-66
+173
+174                <category android:name="android.intent.category.DEFAULT" />
+174-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:36:17-76
+174-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:36:27-73
+175                <category android:name="android.intent.category.BROWSABLE" />
+175-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:37:17-78
+175-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:37:27-75
+176
+177                <data
+177-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:39:17-42:51
+178                    android:host="firebase.auth"
+178-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:40:21-49
+179                    android:path="/"
+179-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:41:21-37
+180                    android:scheme="recaptcha" />
+180-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:42:21-48
+181            </intent-filter>
+182        </activity>
+183
+184        <service
+184-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:64:9-73:19
+185            android:name="com.google.firebase.auth.api.fallback.service.FirebaseAuthFallbackService"
+185-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:65:13-101
+186            android:enabled="true"
+186-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:66:13-35
+187            android:exported="false" >
+187-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:67:13-37
+188            <intent-filter>
+188-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:68:13-72:29
+189                <action android:name="com.google.firebase.auth.api.gms.service.START" />
+189-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:69:17-89
+189-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:69:25-86
+190
+191                <category android:name="android.intent.category.DEFAULT" />
+191-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:36:17-76
+191-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\51c78e1e08064f6829eca3d47d388002\jetified-firebase-auth-20.0.1\AndroidManifest.xml:36:27-73
+192            </intent-filter>
+193        </service>
+194
+195        <activity
+195-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\ad08fb773c69b19de92892951f06f3c3\play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+196            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+196-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\ad08fb773c69b19de92892951f06f3c3\play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+197            android:exported="false"
+197-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\ad08fb773c69b19de92892951f06f3c3\play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+198            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+198-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\ad08fb773c69b19de92892951f06f3c3\play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+199
+200        <provider
+200-->[com.google.firebase:firebase-common:19.4.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\62c1c44a68a45a2cc587f10a3159e7c2\jetified-firebase-common-19.4.0\AndroidManifest.xml:26:9-31:39
+201            android:name="com.google.firebase.provider.FirebaseInitProvider"
+201-->[com.google.firebase:firebase-common:19.4.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\62c1c44a68a45a2cc587f10a3159e7c2\jetified-firebase-common-19.4.0\AndroidManifest.xml:27:13-77
+202            android:authorities="com.example.medi_mate.firebaseinitprovider"
+202-->[com.google.firebase:firebase-common:19.4.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\62c1c44a68a45a2cc587f10a3159e7c2\jetified-firebase-common-19.4.0\AndroidManifest.xml:28:13-72
+203            android:directBootAware="true"
+203-->[com.google.firebase:firebase-common:19.4.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\62c1c44a68a45a2cc587f10a3159e7c2\jetified-firebase-common-19.4.0\AndroidManifest.xml:29:13-43
+204            android:exported="false"
+204-->[com.google.firebase:firebase-common:19.4.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\62c1c44a68a45a2cc587f10a3159e7c2\jetified-firebase-common-19.4.0\AndroidManifest.xml:30:13-37
+205            android:initOrder="100" />
+205-->[com.google.firebase:firebase-common:19.4.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\62c1c44a68a45a2cc587f10a3159e7c2\jetified-firebase-common-19.4.0\AndroidManifest.xml:31:13-36
+206
+207        <meta-data
+207-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\1c158f6882f5571fb5c5f1ccd182d48d\jetified-play-services-basement-17.1.0\AndroidManifest.xml:23:9-25:69
+208            android:name="com.google.android.gms.version"
+208-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\1c158f6882f5571fb5c5f1ccd182d48d\jetified-play-services-basement-17.1.0\AndroidManifest.xml:24:13-58
+209            android:value="@integer/google_play_services_version" />
+209-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\1c158f6882f5571fb5c5f1ccd182d48d\jetified-play-services-basement-17.1.0\AndroidManifest.xml:25:13-66
+210    </application>
+211
+212</manifest>

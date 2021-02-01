@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'navbar.dart';
-
 class Medical_Logs extends StatefulWidget {
+  String userName;
+  Medical_Logs({Key key, @required this.userName}) : super(key: key);
   @override
-  _Medical_LogsState createState() => _Medical_LogsState();
+  _Medical_LogsState createState() => _Medical_LogsState(userName: userName);
 }
 
 class _Medical_LogsState extends State<Medical_Logs> {
+  String userName;
+  _Medical_LogsState({Key key, @required this.userName});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +19,7 @@ class _Medical_LogsState extends State<Medical_Logs> {
             title: Image.asset("assets/logo_text.png",width:200,height:100),
             centerTitle: true,
           )),
-          drawer:NavDrawer(),
+          drawer:NavDrawer(userName: userName,),
       body: Column(children: <Widget>[
         Padding(
           padding: const EdgeInsets.all(8.0),

@@ -4,8 +4,11 @@ import 'prescription_logs.dart';
 import 'Prescription.dart';
 import 'MedicineBill.dart';
 import 'Profile.dart';
+import 'dashboard.dart';
 
 class NavDrawer extends StatelessWidget {
+  String userName;
+  NavDrawer({Key key, @required this.userName}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -15,7 +18,7 @@ class NavDrawer extends StatelessWidget {
           //Image.asset('assets/cover.png'),
           DrawerHeader(
             child: Text(
-              'Sameeksha',
+              ''+userName,
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
            
@@ -28,12 +31,12 @@ class NavDrawer extends StatelessWidget {
            
           ListTile(
             leading: Icon(Icons.input),
-            title: Text('Upload Prescription'),
+            title: Text('Input Prescription Image'),
             onTap: () => {
               Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => PrescriptionPage(title:'MyMediMate'),
+                                      builder: (context) => PrescriptionPage(userName: userName,),
                                     )),
             },
           ),
@@ -45,7 +48,7 @@ class NavDrawer extends StatelessWidget {
               Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => ProfilePage(title:'My MediMate'),
+                                      builder: (context) => ProfilePage(userName: userName,),
                                     )),
             },
           ),
@@ -55,7 +58,7 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Prescription_Logs(),
+                                      builder: (context) => Prescription_Logs(userName: userName,),
                                     )),},
           ),
           ListTile(
@@ -65,11 +68,11 @@ class NavDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.border_color),
-            title: Text('Upload bill'),
+            title: Text('Input Medicine Bill Image'),
             onTap: () => {Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => MedicineBillPage(title:'My MediMate'),
+                                      builder: (context) => MedicineBillPage(userName: userName,),
                                     )),},
           ),
           ListTile(

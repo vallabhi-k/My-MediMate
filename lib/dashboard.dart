@@ -1,12 +1,20 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:medi_mate/Database.dart';
 import 'prescription_logs.dart';
 import 'Prescription.dart';
 import 'MedicineBill.dart';
 import 'Profile.dart';
 
 class Dashboard extends StatelessWidget {
+  String userPhone;
+  String userName;
+  Dashboard({Key key, @required this.userPhone,this.userName}) : super(key: key);
+  Database d = new Database();
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -35,7 +43,7 @@ class Dashboard extends StatelessWidget {
                        
                   subtitle:
                   Text(
-                    'Username',
+                    ''+userName.toString(),
                     style: TextStyle(
                         color: Colors.brown,
                         fontWeight: FontWeight.bold,
@@ -71,7 +79,7 @@ class Dashboard extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => PrescriptionPage(title:'MyMediMate'),
+                                      builder: (context) => PrescriptionPage(userName: userName,userPhone: userPhone),
                                     ));
                               },
                               child: Center(
@@ -83,7 +91,12 @@ class Dashboard extends StatelessWidget {
                                       height: 100.0,
                                       width: 100.0,
                                     ),
-                                    Text('Upload Prescription')
+                                    Align(
+                                        alignment: Alignment.bottomCenter,
+                                        child: Text('Input Prescription')),
+                                    Align(
+                                        alignment: Alignment.bottomCenter,
+                                        child: Text('Image')),
                                   ],
                                 ),
                               ),
@@ -103,7 +116,7 @@ class Dashboard extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => MedicineBillPage(title:'My MediMate'),
+                                      builder: (context) => MedicineBillPage(userName: userName,userPhone: userPhone,),
                                     ));
                               },
                               child: Center(
@@ -115,7 +128,12 @@ class Dashboard extends StatelessWidget {
                                       height: 100.0,
                                       width: 100.0,
                                     ),
-                                    Text('Upload Medical Bill')
+                                    Align(
+                                        alignment: Alignment.bottomCenter,
+                                        child: Text('Input Medical Bill')),
+                                    Align(
+                                        alignment: Alignment.bottomCenter,
+                                        child: Text('Image')),
                                   ],
                                 ),
                               ),
@@ -135,7 +153,7 @@ class Dashboard extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Prescription_Logs(),
+                                      builder: (context) => Prescription_Logs(userName: userName,),
                                     ));
                               },
                               child: Center(
@@ -167,7 +185,7 @@ class Dashboard extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Prescription_Logs(),
+                                      builder: (context) => Prescription_Logs(userName: userName,),
                                     ));
                               },
                               child: Center(
@@ -199,7 +217,7 @@ class Dashboard extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => ProfilePage(title:'My MediMate'),
+                                      builder: (context) => ProfilePage(userName: userName,),
                                     ));
                               },
                               child: Center(
@@ -231,7 +249,7 @@ class Dashboard extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Prescription_Logs(),
+                                      builder: (context) => Prescription_Logs(userName: userName,),
                                     ));
                               },
                               child: Center(

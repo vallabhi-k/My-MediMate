@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 import 'navbar.dart';
+import 'Database.dart';
 
 class Prescription_Logs extends StatefulWidget {
+  String userName;
+  Prescription_Logs({Key key, @required this.userName}) : super(key: key);
   @override
-  _Prescription_LogsState createState() => _Prescription_LogsState();
+  _Prescription_LogsState createState() => _Prescription_LogsState(userName: userName);
 }
 
 class _Prescription_LogsState extends State<Prescription_Logs> {
+  String userName;
+  _Prescription_LogsState({Key key, @required this.userName});
+  Database d = new Database();
+
   @override
   Widget build(BuildContext context) {
+    var data = d.getMedicineLogs("+919833515264");
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(100.0),
@@ -16,7 +24,7 @@ class _Prescription_LogsState extends State<Prescription_Logs> {
             title: Image.asset("assets/logo_text.png",width:200,height:100),
             centerTitle: true,
           )),
-          drawer:NavDrawer(),
+          drawer:NavDrawer(userName: userName,),
       body: Column(children: <Widget>[
         Padding(
           padding: const EdgeInsets.all(8.0),

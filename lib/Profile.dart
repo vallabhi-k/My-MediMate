@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'navbar.dart';
+import 'Database.dart';
 
 class ProfilePage extends StatefulWidget {
-  ProfilePage({Key key, this.title}) : super(key: key);
-
-  final String title;
+  String userName;
+  ProfilePage({Key key, @required this.userName}) : super(key: key);
 
   @override
-  _ProfileState createState() => _ProfileState();
+  _ProfileState createState() => _ProfileState(userName: userName);
 }
 
 class _ProfileState extends State<ProfilePage> {
+  String userName;
+  _ProfileState({Key key, @required this.userName});
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -26,7 +28,7 @@ class _ProfileState extends State<ProfilePage> {
             title: Image.asset("assets/logo_text.png",width:200,height:100),
             centerTitle: true,
           )),
-      drawer: NavDrawer(),
+      drawer: NavDrawer(userName: userName,),
       body: SingleChildScrollView (child : ProfileForm(),),
     );
   }
@@ -37,15 +39,20 @@ class ProfileForm extends StatefulWidget {
 }
 
 class _ProfileFormState extends State<ProfileForm> {
+  Database d = new Database();
   final _formKey = GlobalKey<FormState>();
   DateTime selectedDate = DateTime.now();
-  TimeOfDay breakfastTime = TimeOfDay.now();
-  TimeOfDay lunchTime = TimeOfDay.now();
-  TimeOfDay dinnerTime = TimeOfDay.now();
+  TimeOfDay breakfastTime = TimeOfDay(hour: 10,minute: 30);
+  TimeOfDay lunchTime = TimeOfDay(hour: 12,minute: 30);
+  TimeOfDay dinnerTime = TimeOfDay(hour: 20,minute: 00);
+  String phoneNumber;
+  String UserName;
+
 
   TextEditingController _nameController;
   TextEditingController _numberController;
   static List<String> friendsList = [null];
+  static List<String> NumbersList = [null];
 
   @override
   void initState() {
@@ -77,6 +84,7 @@ class _ProfileFormState extends State<ProfileForm> {
                 if (value.isEmpty){
                   return 'Please enter your Name';
                 }
+                UserName = value;
                 return null;
               },
             ),
@@ -92,6 +100,7 @@ class _ProfileFormState extends State<ProfileForm> {
                 if (value.isEmpty){
                   return 'Please enter your Phone Number';
                 }
+                phoneNumber = "+91"+value;
                 return null;
               },
             ),
@@ -136,6 +145,7 @@ class _ProfileFormState extends State<ProfileForm> {
             ),
             onPressed: () async {
               friendsList.insert(0, null);
+              NumbersList.insert(0, null);
               setState((){});
             },
           ),
@@ -155,6 +165,7 @@ class _ProfileFormState extends State<ProfileForm> {
           ElevatedButton(
             onPressed: (){
               if(_formKey.currentState.validate()){
+                d.saveProfile(phoneNumber, UserName,(selectedDate).toString().substring(0,10) , (breakfastTime).format(context), (lunchTime).format(context), (dinnerTime).format(context), friendsList, NumbersList);
                 Scaffold.of(context).showSnackBar(SnackBar(content: Text('Saving Data'),));
               }
             },
@@ -206,9 +217,13 @@ class _ProfileFormState extends State<ProfileForm> {
         if(add){
           // add new text-fields at the top of all friends textfields
           friendsList.insert(0, null);
+          NumbersList.insert(0, null);
         }
-        else friendsList.removeAt(index);
-        setState((){});
+        else {
+          friendsList.removeAt(index);
+          NumbersList.removeAt(index);
+        }
+          setState((){});
       },
       child: Container(
         width: 50,
@@ -222,7 +237,7 @@ class _ProfileFormState extends State<ProfileForm> {
       context: context,
       initialDate: selectedDate,
       firstDate: DateTime(1920),
-      lastDate: DateTime(2021),
+      lastDate: DateTime(2022),
       helpText: 'Select Birthday',
       errorFormatText: 'Enter valid date',
       errorInvalidText: 'Enter date in valid range',
@@ -356,7 +371,7 @@ class _FriendNumbersFieldsState extends State<FriendNumberFields> {
   Widget build(BuildContext context) {
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      _numberController.text = _ProfileFormState.friendsList[widget.index] ?? '';
+      _numberController.text = _ProfileFormState.NumbersList[widget.index] ?? '';
     });
 
     return Container(
@@ -364,7 +379,7 @@ class _FriendNumbersFieldsState extends State<FriendNumberFields> {
         padding: const EdgeInsets.only(left: 16.0,right: 66.0),
           child:TextFormField(
       controller: _numberController,
-      onChanged: (v) => _ProfileFormState.friendsList[widget.index] = v,
+      onChanged: (v) => _ProfileFormState.NumbersList[widget.index] = v,
       keyboardType: TextInputType.number,
       decoration: InputDecoration(
           hintText: 'Enter peer\'s number'

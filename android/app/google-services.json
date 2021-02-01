@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "602537568402",
+    "project_id": "mymedimate-f7faf",
+    "storage_bucket": "mymedimate-f7faf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:602537568402:android:cc2d53631dc7e1c7175e4b",
+        "android_client_info": {
+          "package_name": "com.example.medi_mate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "602537568402-vi7prr36nmqhb6c02t3ioc4p2kpqolpt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medi_mate",
+            "certificate_hash": "b3359c66960f253242fbd2c008b16969589412b2"
+          }
+        },
+        {
+          "client_id": "602537568402-ig3jro1obdno4ge25eacs5mh22eiq2gu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzV3EogdIubgPWF6Gvy6cjXMkpCh5aWLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "602537568402-ig3jro1obdno4ge25eacs5mh22eiq2gu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

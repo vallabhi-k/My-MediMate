@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">602537568402-ig3jro1obdno4ge25eacs5mh22eiq2gu.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">602537568402</string>
+    <string name="google_api_key" translatable="false">AIzaSyCzV3EogdIubgPWF6Gvy6cjXMkpCh5aWLQ</string>
+    <string name="google_app_id" translatable="false">1:602537568402:android:cc2d53631dc7e1c7175e4b</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCzV3EogdIubgPWF6Gvy6cjXMkpCh5aWLQ</string>
+    <string name="google_storage_bucket" translatable="false">mymedimate-f7faf.appspot.com</string>
+    <string name="project_id" translatable="false">mymedimate-f7faf</string>
+</resources>

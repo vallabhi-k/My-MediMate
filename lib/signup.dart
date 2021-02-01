@@ -1,9 +1,11 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'Login.dart';
 import 'otp.dart';
 import 'prescription_logs.dart';
-import 'package:flutter_otp/flutter_otp.dart';
-import 'package:sms/sms.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'dashboard.dart';
+import 'Database.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -11,10 +13,87 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  TextEditingController emailEditingContrller = TextEditingController();
-  FlutterOtp otp = FlutterOtp();
+  //TextEditingController emailEditingContrller = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   String mobileNumber;
+  String username;
+  final _phoneController = TextEditingController();
+  final _userController = TextEditingController();
+  final _codeController = TextEditingController();
+  FirebaseUser user;
+  Database d = new Database();
+  Future<bool> loginUser(String phone, BuildContext context) async{
+    FirebaseAuth _auth = FirebaseAuth.instance;
+    _auth.verifyPhoneNumber(
+        phoneNumber: phone,
+        timeout: Duration(seconds: 60),
+        verificationCompleted: (AuthCredential credential) async{
+          Navigator.of(context).pop();
+
+          AuthResult result = await _auth.signInWithCredential(credential);
+
+          FirebaseUser user = result.user;
+          print("user");
+          print(user);
+          if(user != null){
+            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                Dashboard(userPhone: mobileNumber,userName: username,)), (Route<dynamic> route) => false);
+          }else{
+            print("Error");
+          }
+
+          //This callback would gets called when verification is done auto maticlly
+        },
+        verificationFailed: (AuthException exception){
+          print(exception);
+          print('Phone number verification failed. Code: ${exception.code}. Message: ${exception.message}');
+        },
+        codeSent: (String verificationId, [int forceResendingToken]){
+          showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (context) {
+                return AlertDialog(
+                  title: Text("Enter Otp"),
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      TextField(
+                        controller: _codeController,
+                      ),
+                    ],
+                  ),
+                  actions: <Widget>[
+                    FlatButton(
+                      child: Text("Confirm"),
+                      textColor: Colors.white,
+                      color: Colors.blue,
+                      onPressed: () async{
+                        final code = _codeController.text.trim();
+                        AuthCredential credential = PhoneAuthProvider.getCredential(verificationId: verificationId, smsCode: code);
+
+                        AuthResult result = await _auth.signInWithCredential(credential);
+
+                        FirebaseUser user = result.user;
+
+                        if(user != null){
+                          d.saveUser(username, mobileNumber);
+                          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                              Dashboard(userPhone: mobileNumber,userName: username,)), (Route<dynamic> route) => false);
+                        }else{
+                          print("Error");
+                        }
+                      },
+                    )
+                  ],
+                );
+              }
+          );
+        },
+        codeAutoRetrievalTimeout: null
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,6 +132,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                    
                   TextFormField(
+                    controller: _userController,
                     autofocus: false,
                     obscureText: false,
                     keyboardType: TextInputType.text,
@@ -73,6 +153,7 @@ class _SignUpState extends State<SignUp> {
                       if (value.isEmpty) {
                         return 'Please enter Name';
                       }
+                      username = value;
                       return null;
                     },
                   ),
@@ -80,6 +161,7 @@ class _SignUpState extends State<SignUp> {
                     height: 20,
                   ),
                   TextFormField(
+                    controller: _phoneController,
                     autofocus: false,
                     obscureText: false,
                     keyboardType: TextInputType.number,
@@ -101,7 +183,7 @@ class _SignUpState extends State<SignUp> {
                       if (value.isEmpty) {
                         return 'Please enter Mobile Number';
                       }
-                      mobileNumber = value;
+                      mobileNumber = "+91"+value;
                       return null;
                     },
                   ),
@@ -116,20 +198,14 @@ class _SignUpState extends State<SignUp> {
                     child: MaterialButton(
                       onPressed: () {
                       if (_formKey.currentState.validate()) {
-                        otp.sendOtp("9833515265", "OTP is", 1000, 9999, '+91');
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => OtpPage(),
-                              settings: RouteSettings(arguments: mobileNumber,)
-                            ));
+                            loginUser(mobileNumber, context);
                       }
                       },
                       textColor: Colors.white,
                       color: const Color(0xFFFAC7C7),
                       
                       height: 50,
-                      child: Text("Create an account"),
+                      child: Text("Login"),
                     ),
                   ),
 

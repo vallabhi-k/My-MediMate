@@ -1,7 +1,13 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:medi_mate/Database.dart';
+import 'package:medi_mate/dashboard.dart';
 import 'signup.dart';
 import 'select_language.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'MedicineReminder.dart';
+import 'Prescription_manual.dart';
 
 Map<int, Color> color = {
   50: Color.fromRGBO(136, 14, 79, .1),
@@ -51,15 +57,59 @@ class SplashPage extends StatefulWidget {
   @override
   _SplashPageState createState() => _SplashPageState();
 }
-
+final FirebaseAuth _auth = FirebaseAuth.instance;
 class _SplashPageState extends State<SplashPage> {
+  Database d = new Database();
+  var flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
+  String userPhone;
+  initializeNotifications() async {
+    var initializationSettingsAndroid =
+    AndroidInitializationSettings('@mipmap/ic_launcher');
+    var initializationSettingsIOS = IOSInitializationSettings();
+    var initializationSettings = InitializationSettings(
+        android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
+    await flutterLocalNotificationsPlugin.initialize(initializationSettings,
+        onSelectNotification: onSelectNotification);
+  }
+
+  Future onSelectNotification(String payload) async {
+    print('Notification clicked');
+    print(payload);
+    if(payload!=null) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) =>
+              MedicineReminder(userPhone: userPhone)));
+    }
+    //return Future.value(0);
+  }
+
   @override
   void initState() {
     super.initState();
     Timer(
         Duration(seconds: 3),
-        () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => SelectLanguagePage())));
+        () {
+          getUser().then((user) async {
+            if(user != null){
+              userPhone =user.phoneNumber.toString();
+              String username = await  d.getUser(user.phoneNumber.toString());
+              //print(user.phoneNumber.toString());
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => Dashboard(userPhone:user.phoneNumber.toString(),userName: username.toString(),)));
+            }
+            else
+              {
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => SelectLanguagePage()));
+                //Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) =>Prescription_Manual(userName: "Sameeksha",userPhone: "+919833515264",)));
+                //Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) =>MedicineReminder(userPhone: "+919833515264",)));
+              }
+          });
+        });
+    //initializeNotifications();
+  }
+
+  Future<FirebaseUser> getUser() async {
+    return await _auth.currentUser();
   }
 
   @override
@@ -71,7 +121,7 @@ class _SplashPageState extends State<SplashPage> {
           children: [
             Padding(
               padding: const EdgeInsets.only(
-                  left: 35.0, top: 70.0, right: 5.0, bottom: 20.0),
+                  left: 60.0, top: 70.0, right: 5.0),
               child: Image.asset('assets/logo_text.png'),
             ),
             /*Text("My MediMate",
@@ -86,9 +136,8 @@ class _SplashPageState extends State<SplashPage> {
         ),
         Padding(
           padding: const EdgeInsets.only(
-              left: 8.0, top: 20.0, right: 8.0, bottom: 50.0),
-        ),
-        Row(
+              left: 20.0, top: 80.0, right: 20.0, bottom: 50.0),
+        child:Row(
           children: [
             Image.asset(
               'assets/splash_screen_img.png',
@@ -97,10 +146,10 @@ class _SplashPageState extends State<SplashPage> {
               fit: BoxFit.fill,
             ),
           ],
-        ),
+        ),),
         Padding(
           padding: const EdgeInsets.only(
-              left: 1.0, top: 80.0, right: 8.0, bottom: 50.0),
+              left: 1.0, top: 50.0, right: 8.0, bottom: 50.0),
         ),
         Row(
           children: [

@@ -374,7 +374,7 @@ class OtpPageState extends State<OtpPage> {
                               onPressed: () {
                                 //matchOtp();
                                 Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                                    Dashboard()), (Route<dynamic> route) => false);
+                                    Dashboard(userPhone: mobileNumber,)), (Route<dynamic> route) => false);
 
                               },
                               child: Image.asset('assets/success.png',
