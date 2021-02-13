@@ -189,34 +189,101 @@ class Database {
     }
   }
 
-  Future <Map> getMedicineLogs(String PhoneNumber) async{
-    var finaltemp = new Map();
-    try
-    {
-    await databaseReference.child(PhoneNumber).child("Prescription").once().then((DataSnapshot data) {
-      data.value.forEach((key,value) async{
-        await databaseReference.child(PhoneNumber).child("Prescription").child(key).once().then((DataSnapshot data1) {
-          data1.value.forEach((key1,value1){
-            finaltemp[key].append(data1.value[key1]);
-          });
+  Future <List<String>> getMedicineLogs(String PhoneNumber) async {
+    List<String> DeseasesName = [];
+    List<String> DateValue = [];
+    try {
+      await databaseReference.child(PhoneNumber).child("Prescription").once().then((DataSnapshot data) {
+        //print(data.value);
+        data.value.forEach((key, value) {
+          DateValue.insert(0, key);
         });
       });
-    });
-    await databaseReference.child(PhoneNumber).child("Archive").once().then((DataSnapshot data) {
-      data.value.forEach((key,value) async{
-        await databaseReference.child(PhoneNumber).child("Archive").child(key).once().then((DataSnapshot data1) {
-          data1.value.forEach((key1,value1){
-            finaltemp[key].append(data1.value[key1]);
+      for (int i = 0; i < DateValue.length; i++) {
+        await databaseReference.child(PhoneNumber).child("Prescription").child(DateValue[i]).once().then((DataSnapshot data) {
+          data.value.forEach((key, value) {
+            DeseasesName.insert(0, DateValue[i]);
+            DeseasesName.insert(1, key);
+            DeseasesName.insert(2, "Prescription");
           });
         });
+      }
+      DateValue = [];
+      await databaseReference.child(PhoneNumber).child("Archive").once().then((DataSnapshot data) {
+        //print(data.value);
+        data.value.forEach((key, value) {
+          DateValue.insert(0, key);
+        });
       });
-    });
+      for (int i = 0; i < DateValue.length; i++) {
+        await databaseReference.child(PhoneNumber).child("Archive").child(DateValue[i]).once().then((DataSnapshot data) {
+          data.value.forEach((key, value) {
+            DeseasesName.insert(0, DateValue[i]);
+            DeseasesName.insert(1, key);
+            DeseasesName.insert(2, "Archive");
+          });
+        });
+      }
     }
-    catch(e)
-    {
+    catch (e) {
       print(e);
     }
-    print(finaltemp);
-    return finaltemp;
+    var temp;
+    for(int i =0;i<DeseasesName.length;i+=3)
+      {
+        for(int j =i+3;j<DeseasesName.length-3;j+=3)
+          {
+            if(checkDate(DeseasesName[i],DeseasesName[j]))
+              {
+                temp = DeseasesName[i];
+                DeseasesName[i] = DeseasesName[j];
+                DeseasesName[j]=temp;
+                temp = DeseasesName[i+1];
+                DeseasesName[i+1] = DeseasesName[j+1];
+                DeseasesName[j+1]=temp;
+                temp = DeseasesName[i+2];
+                DeseasesName[i+2] = DeseasesName[j+2];
+                DeseasesName[j+2]=temp;
+              }
+          }
+      }
+    print(DeseasesName);
+    return DeseasesName;
+  }
+  bool checkDate(String Date1, String Date2)
+  {
+    Date1=Date1.replaceAll("-", "");
+    Date2=Date2.replaceAll("-", "");
+    if(int.parse(Date1)<int.parse(Date2))
+      {
+        return true;
+      }
+    return false;
+  }
+  Future <List<String>> getMedicineLogsinfo(String PhoneNumber,String type,String Date,String Deseases) async {
+    List<String> DeseasesName = [];
+    List<String> MedicineName = [];
+    print(type);
+    try{
+      await databaseReference.child(PhoneNumber).child(type).child(Date).child(Deseases).once().then((DataSnapshot data) {
+        data.value.forEach((key, value) {
+          MedicineName.insert(0, key);
+        });
+      });
+      for(int i=0;i<MedicineName.length;i++)
+        {
+          await databaseReference.child(PhoneNumber).child(type).child(Date).child(Deseases).child(MedicineName[i]).once().then((DataSnapshot data) {
+            DeseasesName.insert(0, MedicineName[i]);
+            DeseasesName.insert(1, data.value["Breakfast"]);
+            DeseasesName.insert(2, data.value["Lunch"]);
+            DeseasesName.insert(3, data.value["Dinner"]);
+          });
+        }
+    }
+    catch(e){
+      print(e);
+    }
+    print(DeseasesName);
+    return DeseasesName;
   }
 }

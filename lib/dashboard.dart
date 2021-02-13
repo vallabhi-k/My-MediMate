@@ -1,20 +1,71 @@
 import 'dart:io';
+import 'dart:math';
 
+import 'package:android_alarm_manager/android_alarm_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:intl/intl.dart';
 import 'package:medi_mate/Database.dart';
 import 'prescription_logs.dart';
 import 'Prescription.dart';
 import 'MedicineBill.dart';
 import 'Profile.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
   String userPhone;
   String userName;
   Dashboard({Key key, @required this.userPhone,this.userName}) : super(key: key);
+  @override
+  _DashboardState createState() => _DashboardState(userPhone: userPhone,userName: userName);
+}
+
+class _DashboardState extends State<Dashboard> {
+  String userPhone;
+  String userName;
+  _DashboardState({Key key, @required this.userPhone,this.userName});
   Database d = new Database();
+  var flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
+
+  void AlarmManager() async{
+    WidgetsFlutterBinding.ensureInitialized();
+    await AndroidAlarmManager.initialize();
+    String formattedDate = DateFormat('kk:mm:ss').format(DateTime.now());
+    String date = DateFormat('yyyy-MM-dd').format(DateTime.now());
+    var l2 = DateTime.parse('$date 17:02:00');
+    var l2p = DateTime.parse('$date 17:03:00');
+    AndroidAlarmManager.oneShotAt(l2p, Random().nextInt(9999999), start);
+    AndroidAlarmManager.oneShotAt(l2, Random().nextInt(9999999), stop);
+    var l3 = DateTime.parse('$date 15:52:00');
+    var l3p = DateTime.parse('$date 15:51:00');
+    //AndroidAlarmManager.oneShotAt(l3p, Random().nextInt(9999999), start);
+    //AndroidAlarmManager.oneShotAt(l3, Random().nextInt(9999999), stop);
+  }
+  @override
+  void initState(){
+    AlarmManager();
+    // TODO: implement initState
+    super.initState();
+  }
+  start () async{
+    var scheduledNotificationDateTime = new DateTime.now().add(new Duration(seconds: 2));
+    print(scheduledNotificationDateTime);
+    var androidPlatformChannelSpecifics = new AndroidNotificationDetails('your other channel id','your other channel name', 'your other channel description');
+    var iOSPlatformChannelSpecifics = new IOSNotificationDetails();
+    var platformChannelSpecifics = new NotificationDetails(android: androidPlatformChannelSpecifics, iOS: iOSPlatformChannelSpecifics);
+    await flutterLocalNotificationsPlugin.schedule(
+        0,
+        'scheduled title',
+        'scheduled body',
+        scheduledNotificationDateTime,
+        platformChannelSpecifics);
+    print("start");
+  }
+
+  stop() {
+    print("stop");
+  }
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -153,7 +204,7 @@ class Dashboard extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Prescription_Logs(userName: userName,),
+                                      builder: (context) => Prescription_Logs(userName: userName,userPhone: userPhone,),
                                     ));
                               },
                               child: Center(
@@ -185,7 +236,7 @@ class Dashboard extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Prescription_Logs(userName: userName,),
+                                      builder: (context) => Prescription_Logs(userName: userName,userPhone: userPhone,),
                                     ));
                               },
                               child: Center(
@@ -249,7 +300,7 @@ class Dashboard extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Prescription_Logs(userName: userName,),
+                                      builder: (context) => Prescription_Logs(userName: userName,userPhone: userPhone,),
                                     ));
                               },
                               child: Center(

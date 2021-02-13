@@ -65,7 +65,7 @@ class _PrescriptionManualFormState extends State<PrescriptionManualForm> {
   String DiseasesName="";
   String CourseDays="";
 
-  var flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
+  //var flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
 
   @override
   void initState() {
@@ -181,7 +181,7 @@ class _PrescriptionManualFormState extends State<PrescriptionManualForm> {
                 Scaffold.of(context).showSnackBar(SnackBar(
                   content: Text('Saving Data'),
                 ));
-                var BreakfastTime;
+                /*var BreakfastTime;
                 var LunchTime;
                 var DinnerTime;
                 await d.getProfile(userPhone).then((DataSnapshot data) async{
@@ -356,7 +356,7 @@ class _PrescriptionManualFormState extends State<PrescriptionManualForm> {
                       'scheduled title',
                       'scheduled body',
                       scheduledNotificationDateTime,
-                      platformChannelSpecifics);
+                      platformChannelSpecifics);*/
 
                 DateTime selectedDate = DateTime.now();
                 String Date = "${selectedDate.toLocal()}".split(' ')[0];
