@@ -8,6 +8,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'MedicineReminder.dart';
 import 'Prescription_manual.dart';
+import 'package:android_alarm_manager/android_alarm_manager.dart';
+import 'package:intl/intl.dart';
+import 'dart:math';
+
 
 Map<int, Color> color = {
   50: Color.fromRGBO(136, 14, 79, .1),
@@ -21,7 +25,42 @@ Map<int, Color> color = {
   800: Color.fromRGBO(136, 14, 79, .9),
   900: Color.fromRGBO(136, 14, 79, 1),
 };
-void main() => runApp(MyApp());
+
+start () async {
+  var flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
+  var scheduledNotificationDateTime = new DateTime.now().add(new Duration(seconds: 2));
+  print("helllooooooooooooooo" + scheduledNotificationDateTime.toString());
+  var androidPlatformChannelSpecifics = new AndroidNotificationDetails('your other channel id','your other channel name', 'your other channel description');
+  var iOSPlatformChannelSpecifics = new IOSNotificationDetails();
+  var platformChannelSpecifics = new NotificationDetails(android: androidPlatformChannelSpecifics, iOS: iOSPlatformChannelSpecifics);
+  await flutterLocalNotificationsPlugin.schedule(
+      0,
+      'scheduled title',
+      'scheduled body',
+      scheduledNotificationDateTime,
+      platformChannelSpecifics);
+  print("start");
+}
+
+stop() {
+  print("stop");
+}
+main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await AndroidAlarmManager.initialize();
+  String formattedDate = DateFormat('kk:mm:ss').format(DateTime.now());
+  String date = DateFormat('yyyy-MM-dd').format(DateTime.now());
+  var l2p = DateTime.parse('$date 14:31:00');
+  AndroidAlarmManager.oneShotAt(l2p, Random().nextInt(9999999), start);
+  var l3p = DateTime.parse('$date 14:32:00');
+  AndroidAlarmManager.oneShotAt(l3p, Random().nextInt(9999999), start);
+  runApp(MyApp());
+
+}
+
+
+
+
 // ignore: non_constant_identifier_names
 MaterialColor final_color = MaterialColor(0xFFE2E2, color);
 

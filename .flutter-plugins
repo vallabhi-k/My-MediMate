@@ -1,11 +1,11 @@
 # This is a generated file; do not edit or check into version control.
-android_alarm_manager=C:\\Users\\Admin\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\android_alarm_manager-0.4.5+20\\
-cloud_firestore=C:\\Users\\Admin\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\cloud_firestore-0.12.11\\
-firebase_auth=C:\\Users\\Admin\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_auth-0.14.0+9\\
-firebase_core=C:\\Users\\Admin\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_core-0.4.1+5\\
-firebase_core_web=C:\\Users\\Admin\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_core_web-0.2.1+3\\
-firebase_database=C:\\Users\\Admin\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_database-3.1.6\\
-flutter_local_notifications=C:\\Users\\Admin\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\flutter_local_notifications-4.0.1\\
-flutter_plugin_android_lifecycle=C:\\Users\\Admin\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\flutter_plugin_android_lifecycle-1.0.11\\
-flutter_tts=C:\\Users\\Admin\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\flutter_tts-1.0.0\\
-image_picker=C:\\Users\\Admin\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\image_picker-0.6.7+22\\
+android_alarm_manager=C:\\Program Files\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\android_alarm_manager-0.4.5+20\\
+cloud_firestore=C:\\Program Files\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\cloud_firestore-0.12.11\\
+firebase_auth=C:\\Program Files\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_auth-0.14.0+9\\
+firebase_core=C:\\Program Files\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core-0.4.1+5\\
+firebase_core_web=C:\\Program Files\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core_web-0.2.1+3\\
+firebase_database=C:\\Program Files\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_database-3.1.6\\
+flutter_local_notifications=C:\\Program Files\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_local_notifications-4.0.1\\
+flutter_plugin_android_lifecycle=C:\\Program Files\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_plugin_android_lifecycle-1.0.11\\
+flutter_tts=C:\\Program Files\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_tts-1.0.0\\
+image_picker=C:\\Program Files\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\image_picker-0.6.7+22\\

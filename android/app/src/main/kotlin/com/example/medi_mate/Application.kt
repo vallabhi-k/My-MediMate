@@ -1,5 +1,4 @@
 package com.example.medi_mate
-
 import io.flutter.app.FlutterApplication
 import io.flutter.plugins.androidalarmmanager.AlarmService
 import io.flutter.plugins.androidalarmmanager.AndroidAlarmManagerPlugin
